@@ -6,7 +6,7 @@ pipeline {
 
         //be sure to replace "willbla" with your own Docker Hub username
 
-        DOCKER_IMAGE_NAME = "willbla/train-schedule"
+        DOCKER_IMAGE_NAME = "foxesmead/train-schedule"
 
         CANARY_REPLICAS = 0
 
@@ -66,7 +66,7 @@ pipeline {
 
                 script {
 
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_key') {
 
                         app.push("${env.BUILD_NUMBER}")
 
